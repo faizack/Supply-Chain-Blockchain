@@ -1,5 +1,16 @@
 {
-  "dependencies": {
-    "truffle": "^5.7.4"
-  }
+  "name": "supply-chain-blockchain",
+  "version": "1.0.0",
+  "description": "A simple blockchain-based supply chain transparency dApp",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {}
 }
