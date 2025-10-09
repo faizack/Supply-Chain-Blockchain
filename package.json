@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "truffle": "^5.7.4"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
   }
 }
