@@ -1,0 +1,495 @@
+
+> client@0.1.0 start
+> react-scripts --openssl-legacy-provider start
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+(node:14156) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:14156) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/abstract-coder.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/address.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/anonymous.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/array.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/boolean.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/bytes.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/fixed-bytes.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/null.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/number.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/string.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/coders/tuple.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/ens-normalize/decoder.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/ens-normalize/include.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src.ts/ens-normalize/lib.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src/chains/index.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src/eips/index.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../../src/hardforks/index.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/_version.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/abi-coder.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/addresses.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/bignumber.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/bignumbers.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/browser-base64.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/bytes32.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/fixednumber.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/fragments.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/hashes.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/id.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/idna.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/index.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/interface.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/message.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/namehash.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/strings.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/typed-data.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src.ts/utf8.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/abstract/curve.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/abstract/hash-to-curve.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/abstract/modular.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/abstract/utils.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/abstract/weierstrass.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/account.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/address.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/asyncEventEmitter.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/baseTransaction.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/bytes.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/constants.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/eip1559Transaction.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/eip2930Transaction.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/encoding.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/externals.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/hash.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/helpers.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/index.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/internal.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/legacyTransaction.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/lock.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/object.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/provider.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/signature.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/transactionFactory.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/types.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/units.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/util.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///../src/withdrawal.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/_assert.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/_sha2.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/_shortw_utils.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/_u64.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/crypto.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/hash-utils.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/hmac.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/keccak.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/random.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/secp256k1.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/sha3.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/sha256.ts' URL is not supported
+
+Failed to parse source map: 'webpack:///src/utils.ts' URL is not supported
+
+Warning
+(6:61388) autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated.
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/abstract-coder.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/address.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/anonymous.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/array.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/boolean.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/bytes.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/fixed-bytes.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/null.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/number.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/string.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/coders/tuple.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/ens-normalize/decoder.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/ens-normalize/include.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src.ts/ens-normalize/lib.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src/chains/index.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src/eips/index.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../../src/hardforks/index.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/_version.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/abi-coder.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/addresses.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/bignumber.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/bignumbers.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/browser-base64.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/bytes32.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/fixednumber.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/fragments.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/hashes.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/id.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/idna.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/index.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/interface.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/message.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/namehash.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/strings.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/typed-data.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src.ts/utf8.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/abstract/curve.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/abstract/hash-to-curve.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/abstract/modular.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/abstract/utils.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/abstract/weierstrass.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/account.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/address.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/asyncEventEmitter.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/baseTransaction.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/bytes.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/constants.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/eip1559Transaction.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/eip2930Transaction.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/encoding.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/externals.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/hash.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/helpers.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/index.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/internal.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/legacyTransaction.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/lock.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/object.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/provider.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/signature.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/transactionFactory.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/types.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/units.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/util.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///../src/withdrawal.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/_assert.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/_sha2.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/_shortw_utils.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/_u64.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/crypto.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/hash-utils.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/hmac.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/keccak.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/random.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/secp256k1.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/sha3.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/sha256.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/web3/dist/web3.min.js[39m[22m
+[1mModule Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map: 'webpack:///src/utils.ts' URL is [1m[31mnot supported[39m[22m[1m[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/bootstrap/dist/css/bootstrap.min.css[39m[22m (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.min.css)
+[1mModule Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+Warning
+
+(6:61388) autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently [1m[33mdeprecated[39m[22m[1m.[39m[22m
+
+webpack compiled with [1m[33m79 warnings[39m[22m

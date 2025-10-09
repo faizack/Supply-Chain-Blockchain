@@ -53,7 +53,7 @@
   "sourceMap": "69:367:0:-;;;117:10;94:33;;;;;;;;;;;;;;;;;;;;69:367;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:367:0;;;;;;;",
   "deployedSourceMap": "69:367:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:367:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;132:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;94:33;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;328:105;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;328:105:0;;;;;;;;;;;;;;;;;:::i;:::-;;132:36;;;;:::o;94:33::-;;;;;;;;;;;;;:::o;328:105::-;234:5;;;;;;;;;;;220:19;;:10;:19;;;204:104;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;418:9;391:24;:36;;;;328:105;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract Migrations {\r\n  address public owner = msg.sender;\r\n  uint public last_completed_migration;\r\n\r\n  modifier restricted() {\r\n    require(\r\n      msg.sender == owner,\r\n      \"This function is restricted to the contract's owner\"\r\n    );\r\n    _;\r\n  }\r\n\r\n  function setCompleted(uint completed) public restricted {\r\n    last_completed_migration = completed;\r\n  }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\Ritik\\OneDrive\\Desktop\\Supply Chain Management\\Supply-Chain-Blockchain\\contracts\\Migrations.sol",
+  "sourcePath": "C:\\Users\\SHEIK NATHERSHA\\Desktop\\colour\\Supply-Chain-Blockchain\\contracts\\Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -917,10 +917,16 @@
       "links": {},
       "address": "0x1588F0BAC63213896aD41d02832d07b0Fb612372",
       "transactionHash": "0x8b806812126507461f6149f2eee4ed0ea7fe667a31d1de91ab6e8146fcaad88c"
+    },
+    "1760021469930": {
+      "events": {},
+      "links": {},
+      "address": "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+      "transactionHash": "0xa980dcca48e7923f1bff3988efb89a11c14846ecad6b37fe7c9d4d62b12de46f"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-08-20T05:34:32.259Z",
+  "updatedAt": "2025-10-09T16:20:01.076Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
