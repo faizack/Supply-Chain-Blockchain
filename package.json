@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "truffle": "^5.7.4"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build"
   }
 }
+
+
