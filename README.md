@@ -49,7 +49,7 @@ This repository is ideal for developers who want to learn:
 - How to design **role-based access control** and **product lifecycle tracking** on the blockchain
 - How to integrate a smart contract backend with a modern React/Next.js frontend
 
-## Demo and Screenshots
+<!-- ## Demo and Screenshots
 
 > A short GIF of adding a medicine and tracking it will be added here.
 
@@ -58,7 +58,7 @@ This repository is ideal for developers who want to learn:
 - **Order Materials** – owner creates a new material order  
   _Screenshot placeholder (add `client/public/order-materials.png`)._
 - **Track Materials** – full lifecycle view with QR code  
-  _Screenshot placeholder (add `client/public/track-materials.png`)._
+  _Screenshot placeholder (add `client/public/track-materials.png`)._ -->
 
 ### Key Benefits
 
