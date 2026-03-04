@@ -1,4 +1,4 @@
-# 🔗 Supply Chain Blockchain DApp
+# Supply Chain Blockchain DApp
 
 <div align="center">
 
@@ -8,12 +8,13 @@
 
 [![CI](https://github.com/faizack/Supply-Chain-Blockchain/actions/workflows/ci.yml/badge.svg)](https://github.com/faizack/Supply-Chain-Blockchain/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/faizack/Supply-Chain-Blockchain?style=social)](https://github.com/faizack/Supply-Chain-Blockchain/stargazers)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Solidity](https://img.shields.io/badge/Solidity-363636?logo=solidity&logoColor=white)](https://soliditylang.org/)
 [![Hardhat](https://img.shields.io/badge/Hardhat-FFF1E2?logo=hardhat&logoColor=black)](https://hardhat.org/)
 
-[⭐ Star](https://github.com/faizack619/Supply-Chain-Blockchain) • [🍴 Fork](https://github.com/faizack619/Supply-Chain-Blockchain/fork) • [🐛 Report Bug](https://github.com/faizack619/Supply-Chain-Blockchain/issues) • [💡 Request Feature](https://github.com/faizack619/Supply-Chain-Blockchain/issues)
+[Star](https://github.com/faizack/Supply-Chain-Blockchain) • [Fork](https://github.com/faizack/Supply-Chain-Blockchain/fork) • [Report Bug](https://github.com/faizack/Supply-Chain-Blockchain/issues) • [Request Feature](https://github.com/faizack/Supply-Chain-Blockchain/issues)
 
 </div>
 
@@ -25,7 +26,7 @@
 Watch the demo video: [Canva Design Demo](https://www.canva.com/design/DAFb-i9v_cM/-fK0pKTuOkFq5dfCPQxh_w/watch?utm_content=DAFb-i9v_cM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 -->
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -38,29 +39,46 @@ Watch the demo video: [Canva Design Demo](https://www.canva.com/design/DAFb-i9v_
 - [Contributing](#-contributing)
 - [License](#-license)
 
-## 🎯 Overview
+## Overview
 
-**Supply Chain Blockchain DApp** is a comprehensive decentralized application that leverages blockchain technology to create a transparent, secure, and efficient supply chain management system. This project demonstrates how smart contracts can revolutionize traditional supply chain processes by eliminating paperwork, increasing transparency, and building a robust Root of Trust.
+**Supply Chain Blockchain DApp** is an open-source, blockchain-based supply chain management application built with Solidity smart contracts, Hardhat, Next.js, Web3.js, and MetaMask. It demonstrates how to build an end-to-end Ethereum decentralized application (dApp) for transparent, secure, and traceable pharmaceutical supply chains.
+
+This repository is ideal for developers who want to learn:
+
+- How to build a full-stack Ethereum dApp with **Solidity**, **Hardhat**, **Next.js**, and **Web3.js**
+- How to design **role-based access control** and **product lifecycle tracking** on the blockchain
+- How to integrate a smart contract backend with a modern React/Next.js frontend
+
+## Demo and Screenshots
+
+> A short GIF of adding a medicine and tracking it will be added here.
+
+- **Home Dashboard** – overview of the supply chain and navigation  
+  _Screenshot placeholder (add `client/public/home.png` and update this line to embed it)._
+- **Order Materials** – owner creates a new material order  
+  _Screenshot placeholder (add `client/public/order-materials.png`)._
+- **Track Materials** – full lifecycle view with QR code  
+  _Screenshot placeholder (add `client/public/track-materials.png`)._
 
 ### Key Benefits
 
-- ✅ **Transparency**: All transactions and product movements are recorded on the blockchain
-- ✅ **Security**: Immutable records prevent tampering and fraud
-- ✅ **Efficiency**: Automated processes reduce administrative overhead
-- ✅ **Traceability**: Complete product journey from raw materials to consumer
-- ✅ **Decentralization**: No single point of failure
+- **Transparency**: All transactions and product movements are recorded on the blockchain
+- **Security**: Immutable records prevent tampering and fraud
+- **Efficiency**: Automated processes reduce administrative overhead
+- **Traceability**: Complete product journey from raw materials to consumer
+- **Decentralization**: No single point of failure
 
-## ✨ Features
+## Features
 
-- 🔐 **Role-Based Access Control**: Secure role assignment (Owner, Raw Material Supplier, Manufacturer, Distributor, Retailer)
-- 📦 **Product Management**: Add and track products through the entire supply chain
-- 🔄 **Supply Chain Flow**: Manage product stages (Order → Raw Material Supply → Manufacturing → Distribution → Retail → Sold)
-- 📊 **Real-Time Tracking**: Track products with detailed stage information and QR codes
-- 🎨 **Modern UI**: Beautiful, responsive interface built with Next.js and Tailwind CSS
-- 🔗 **Web3 Integration**: Seamless connection with MetaMask wallet
-- 📱 **Mobile Responsive**: Works perfectly on all devices
+- **Role-Based Access Control**: Secure role assignment (Owner, Raw Material Supplier, Manufacturer, Distributor, Retailer)
+- **Product Management**: Add and track products through the entire supply chain
+- **Supply Chain Flow**: Manage product stages (Order → Raw Material Supply → Manufacturing → Distribution → Retail → Sold)
+- **Real-Time Tracking**: Track products with detailed stage information and QR codes
+- **Modern UI**: Responsive interface built with Next.js and Tailwind CSS
+- **Web3 Integration**: Seamless connection with MetaMask wallet
+- **Mobile Responsive**: Works well on desktop and mobile devices
 
-## 🛠 Technology Stack
+## Technology Stack
 
 ### Frontend
 - **Next.js 14** - React framework with App Router
@@ -80,7 +98,7 @@ Watch the demo video: [Canva Design Demo](https://www.canva.com/design/DAFb-i9v_
 - **npm/yarn** - Package management
 - **Git** - Version control
 
-## 🏗 Architecture
+## Architecture
 
 The application follows a decentralized architecture where:
 
@@ -107,7 +125,7 @@ Order → Raw Material Supplier → Manufacturer → Distributor → Retailer �
 
 ![Supply Chain Flow](https://cdn-wordpress-info.futurelearn.com/info/wp-content/uploads/8d54ad89-e86f-4d7c-8208-74455976a4a9-2-768x489.png)
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 
@@ -198,7 +216,7 @@ The deployment script will automatically update `client/src/deployments.json` wi
    - In MetaMask, click the account icon → "Import Account"
    - Paste the private key and click "Import"
 
-## 🚀 Running the Project
+## Running the Project
 
 ### Start Ganache
 
@@ -229,7 +247,7 @@ npm run build
 npm start
 ```
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### 1. Register Roles
 
@@ -261,7 +279,7 @@ npm start
 - View detailed information about each stage
 - Generate QR codes for product verification
 
-## 🔐 Smart Contract Details
+## Smart Contract Details
 
 The `SupplyChain.sol` smart contract implements a comprehensive supply chain management system with the following features:
 
@@ -291,7 +309,7 @@ The `SupplyChain.sol` smart contract implements a comprehensive supply chain man
 
 ![Smart Contract Flow](https://raw.githubusercontent.com/faizack619/Supply-Chain-Gode-Blockchain/master/client/public/Supply%20Chain%20Design%20(1).png)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -307,12 +325,15 @@ Contributions are welcome! Please follow these steps:
 - Write clear commit messages
 - Add tests for new features
 - Update documentation as needed
+- Read the full [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request
+- Follow the project [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+- Look for issues labeled `good first issue` or `help wanted` if you’re new to the project
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📚 Documentation
+## Documentation
 
 ### External Resources
 
@@ -326,22 +347,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 
-## ⭐ Show Your Support
+## Show Your Support
 
 If you find this project helpful, please consider:
 
-- ⭐ Starring the repository
-- 🍴 Forking the project
-- 🐛 Reporting bugs
-- 💡 Suggesting new features
-- 📢 Sharing with others
+- Starring the repository
+- Forking the project
+- Reporting bugs
+- Suggesting new features
+- Sharing the repository with others
 
 ---
 
 <div align="center">
 
-**Made with ❤️ using Solidity, Next.js, and Web3**
+**Made with Solidity, Next.js, and Web3**
 
-[⬆ Back to Top](#-supply-chain-blockchain-dapp)
+[Back to Top](#supply-chain-blockchain-dapp)
 
 </div>
