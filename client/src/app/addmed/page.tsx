@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { loadWeb3, getContract } from '@/lib/web3'
 import { checkIsOwner, getContractOwner } from '@/lib/contractUtils'
+import { parseTransactionError } from '@/lib/errorUtils'
+import { showNotification } from '@/components/Notification'
 
 interface Medicine {
   id: string
@@ -80,9 +82,9 @@ export default function AddMed() {
       
       setLoader(false)
     } catch (err: any) {
-      const errorMessage = err?.message || 'The smart contract is not deployed to the current network'
       console.error('Error loading blockchain data:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
       setLoader(false)
     }
   }
@@ -104,29 +106,12 @@ export default function AddMed() {
         loadBlockchainData()
         setMedName('')
         setMedDes('')
-        alert('Material order created successfully!')
+        showNotification('Material order created successfully!', 'success')
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('Owner')) {
-          errorMessage = 'Only the contract owner can add materials. Make sure you are using the account that deployed the contract.'
-        } else if (errorMessage.includes('rmsCtr') || errorMessage.includes('manCtr') || errorMessage.includes('disCtr') || errorMessage.includes('retCtr')) {
-          errorMessage = 'Please register at least one role of each type (RMS, Manufacturer, Distributor, Retailer) before adding materials.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     } finally {
       setIsSubmitting(false)
     }

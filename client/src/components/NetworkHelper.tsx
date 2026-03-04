@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { showNotification } from './Notification'
 import { switchToNetwork } from '@/lib/web3'
 
 export default function NetworkHelper() {
@@ -57,7 +58,7 @@ export default function NetworkHelper() {
         window.location.reload()
       }
     } catch (err: any) {
-      alert(`Failed to switch network: ${err?.message || 'Unknown error'}`)
+      showNotification(`Failed to switch network: ${err?.message || 'Unknown error'}`, 'error')
     }
   }
 

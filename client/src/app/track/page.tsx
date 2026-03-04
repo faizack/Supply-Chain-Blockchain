@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { loadWeb3, getContract } from '@/lib/web3'
 import { QRCodeCanvas } from 'qrcode.react'
+import { parseTransactionError } from '@/lib/errorUtils'
+import { showNotification } from '@/components/Notification'
 
 interface Medicine {
   id: string
@@ -96,9 +98,9 @@ export default function Track() {
 
       setLoader(false)
     } catch (err: any) {
-      const errorMessage = err?.message || 'The smart contract is not deployed to the current network'
       console.error('Error loading blockchain data:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
       setLoader(false)
     }
   }
@@ -122,12 +124,12 @@ export default function Track() {
     try {
       const ctr = await supplyChain.methods.medicineCtr().call()
       if (!(medicineId > 0 && medicineId <= parseInt(ctr))) {
-        alert('Invalid Battery ID!!!')
+        showNotification('Invalid Battery ID!', 'error')
         return
       }
       
       if (!med[medicineId]) {
-        alert('Battery data not found. Please wait for data to load.')
+        showNotification('Battery data not found. Please wait for data to load.', 'warning')
         return
       }
 
@@ -140,9 +142,10 @@ export default function Track() {
       else if (stage === 2) setTrackTillManufacture(true)
       else if (stage === 1) setTrackTillRMS(true)
       else setTrackTillOrdered(true)
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error tracking medicine:', err)
-      alert('An error occurred while tracking the battery!')
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 
@@ -150,7 +153,7 @@ export default function Track() {
     event.preventDefault()
     const medicineId = parseInt(id)
     if (isNaN(medicineId)) {
-      alert('Please enter a valid Battery ID!')
+      showNotification('Please enter a valid Battery ID!', 'error')
       return
     }
     await trackMedicine(medicineId)

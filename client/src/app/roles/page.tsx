@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { loadWeb3, getContract } from '@/lib/web3'
 import { checkIsOwner, getContractOwner } from '@/lib/contractUtils'
+import { parseTransactionError } from '@/lib/errorUtils'
+import { showNotification } from '@/components/Notification'
 
 interface Role {
   addr: string
@@ -86,9 +88,9 @@ export default function AssignRoles() {
       
       setLoading(false)
     } catch (err: any) {
-      const errorMessage = err?.message || 'The smart contract is not deployed to the current network'
       console.error('Error loading blockchain data:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
       setLoading(false)
     }
   }
@@ -120,35 +122,18 @@ export default function AssignRoles() {
           receipt = await supplyChain.methods.addRetailer(address, name, place).send({ from: currentAccount })
           break
         default:
-          alert('Invalid role type selected')
+          showNotification('Invalid role type selected', 'error')
           return
       }
       if (receipt) {
-        alert('Role registered successfully!')
+        showNotification('Role registered successfully!', 'success')
         loadBlockchainData()
         setNewRole({ address: '', name: '', place: '', type: 'rms' })
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      } else if (typeof err === 'string') {
-        errorMessage = err
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('Owner')) {
-          errorMessage = 'Only the contract owner can add roles. Make sure you are using the account that deployed the contract.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 

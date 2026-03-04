@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { loadWeb3, getContract } from '@/lib/web3'
+import { parseTransactionError } from '@/lib/errorUtils'
+import { showNotification } from '@/components/Notification'
 
 interface Medicine {
   id: string
@@ -53,9 +55,9 @@ export default function Supply() {
       setMedStage(medStageData)
       setLoader(false)
     } catch (err: any) {
-      const errorMessage = err?.message || 'The smart contract is not deployed to the current network'
       console.error('Error loading blockchain data:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
       setLoader(false)
     }
   }
@@ -87,31 +89,12 @@ export default function Supply() {
       if (receipt) {
         loadBlockchainData()
         setRmsId('')
-        alert('Raw materials supplied successfully!')
+        showNotification('Raw materials supplied successfully!', 'success')
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('findRMS') || errorMessage.includes('findMAN') || errorMessage.includes('findDIS') || errorMessage.includes('findRET')) {
-          errorMessage = 'Your account is not registered for this role. Please register your account first in the Roles page.'
-        } else if (errorMessage.includes('stage') || errorMessage.includes('STAGE')) {
-          errorMessage = 'Invalid stage transition. Make sure the medicine is in the correct stage for this operation.'
-        } else if (errorMessage.includes('medicineID') || errorMessage.includes('_medicineID')) {
-          errorMessage = 'Invalid medicine ID. Please check the medicine ID and try again.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 
@@ -122,31 +105,12 @@ export default function Supply() {
       if (receipt) {
         loadBlockchainData()
         setManId('')
-        alert('Manufacturing completed successfully!')
+        showNotification('Manufacturing completed successfully!', 'success')
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('findRMS') || errorMessage.includes('findMAN') || errorMessage.includes('findDIS') || errorMessage.includes('findRET')) {
-          errorMessage = 'Your account is not registered for this role. Please register your account first in the Roles page.'
-        } else if (errorMessage.includes('stage') || errorMessage.includes('STAGE')) {
-          errorMessage = 'Invalid stage transition. Make sure the medicine is in the correct stage for this operation.'
-        } else if (errorMessage.includes('medicineID') || errorMessage.includes('_medicineID')) {
-          errorMessage = 'Invalid medicine ID. Please check the medicine ID and try again.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 
@@ -157,31 +121,12 @@ export default function Supply() {
       if (receipt) {
         loadBlockchainData()
         setDisId('')
-        alert('Distribution completed successfully!')
+        showNotification('Distribution completed successfully!', 'success')
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('findRMS') || errorMessage.includes('findMAN') || errorMessage.includes('findDIS') || errorMessage.includes('findRET')) {
-          errorMessage = 'Your account is not registered for this role. Please register your account first in the Roles page.'
-        } else if (errorMessage.includes('stage') || errorMessage.includes('STAGE')) {
-          errorMessage = 'Invalid stage transition. Make sure the medicine is in the correct stage for this operation.'
-        } else if (errorMessage.includes('medicineID') || errorMessage.includes('_medicineID')) {
-          errorMessage = 'Invalid medicine ID. Please check the medicine ID and try again.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 
@@ -192,31 +137,12 @@ export default function Supply() {
       if (receipt) {
         loadBlockchainData()
         setRetId('')
-        alert('Retail completed successfully!')
+        showNotification('Retail completed successfully!', 'success')
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('findRMS') || errorMessage.includes('findMAN') || errorMessage.includes('findDIS') || errorMessage.includes('findRET')) {
-          errorMessage = 'Your account is not registered for this role. Please register your account first in the Roles page.'
-        } else if (errorMessage.includes('stage') || errorMessage.includes('STAGE')) {
-          errorMessage = 'Invalid stage transition. Make sure the medicine is in the correct stage for this operation.'
-        } else if (errorMessage.includes('medicineID') || errorMessage.includes('_medicineID')) {
-          errorMessage = 'Invalid medicine ID. Please check the medicine ID and try again.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 
@@ -227,31 +153,12 @@ export default function Supply() {
       if (receipt) {
         loadBlockchainData()
         setSoldId('')
-        alert('Item marked as sold successfully!')
+        showNotification('Item marked as sold successfully!', 'success')
       }
     } catch (err: any) {
-      let errorMessage = 'An error occurred!'
-      if (err?.message) {
-        errorMessage = err.message
-      } else if (err?.error?.message) {
-        errorMessage = err.error.message
-      }
-      
-      // Check for common revert reasons
-      if (errorMessage.includes('revert') || errorMessage.includes('require')) {
-        if (errorMessage.includes('findRMS') || errorMessage.includes('findMAN') || errorMessage.includes('findDIS') || errorMessage.includes('findRET')) {
-          errorMessage = 'Your account is not registered for this role. Please register your account first in the Roles page.'
-        } else if (errorMessage.includes('stage') || errorMessage.includes('STAGE')) {
-          errorMessage = 'Invalid stage transition. Make sure the medicine is in the correct stage for this operation.'
-        } else if (errorMessage.includes('medicineID') || errorMessage.includes('_medicineID')) {
-          errorMessage = 'Invalid medicine ID. Please check the medicine ID and try again.'
-        } else {
-          errorMessage = `Transaction failed: ${errorMessage}`
-        }
-      }
-      
       console.error('Transaction error:', err)
-      alert(errorMessage)
+      const parsedError = parseTransactionError(err)
+      showNotification(parsedError.message, 'error')
     }
   }
 

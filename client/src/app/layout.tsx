@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import NetworkHelper from '@/components/NetworkHelper'
+import NotificationContainer from '@/components/Notification'
 
 export const metadata: Metadata = {
   title: 'Supply Chain Manager',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NetworkHelper />
+        <NotificationContainer />
         {children}
       </body>
     </html>
