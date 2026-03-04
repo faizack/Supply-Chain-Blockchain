@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Supply Chain Blockchain](https://www.mdpi.com/logistics/logistics-03-00005/article_deploy/html/images/logistics-03-00005-g001.png)
+![Supply Chain Blockchain](client/public/supplychainlogo.png)
 
 **A decentralized supply chain management system built on Ethereum blockchain using Solidity smart contracts, Next.js, and Web3.js**
 
