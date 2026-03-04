@@ -18,10 +18,11 @@
 
 ---
 
-
+<!--
 ## 🎥 Demo
 
 Watch the demo video: [Canva Design Demo](https://www.canva.com/design/DAFb-i9v_cM/-fK0pKTuOkFq5dfCPQxh_w/watch?utm_content=DAFb-i9v_cM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+-->
 
 ## 📋 Table of Contents
 
