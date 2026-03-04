@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { showNotification } from './Notification'
 import { switchToNetwork } from '@/lib/web3'
+import deployments from '../deployments.json'
 
 export default function NetworkHelper() {
   const [showHelper, setShowHelper] = useState(false)
@@ -16,9 +17,7 @@ export default function NetworkHelper() {
           const chainId = parseInt(networkId, 16).toString()
           setCurrentNetwork(chainId)
           
-          // Show helper if NOT on network 1337 or 5777 (Ganache can use either)
-          // But we prefer 1337 as that's where the contract is deployed
-          const deployments = await import('@/deployments.json')
+          // Show helper if NOT on a network where we have deployments
           const availableNetworks = Object.keys(deployments.networks)
           if (!availableNetworks.includes(chainId)) {
             setShowHelper(true)
@@ -50,7 +49,6 @@ export default function NetworkHelper() {
   const handleSwitchNetwork = async () => {
     try {
       // Switch to the first available network (usually 1337)
-      const deployments = await import('@/deployments.json')
       const availableNetworks = Object.keys(deployments.networks)
       if (availableNetworks.length > 0) {
         await switchToNetwork(availableNetworks[0])

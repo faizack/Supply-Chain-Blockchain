@@ -1,5 +1,6 @@
 import Web3 from 'web3'
 import { SupplyChainArtifact } from './contracts'
+import deployments from '../deployments.json'
 
 declare global {
   interface Window {
@@ -27,9 +28,6 @@ export const getContract = async () => {
   const web3 = window.web3!
   const accounts = await web3.eth.getAccounts()
   const networkId = await web3.eth.net.getId()
-  
-  // Import deployment info
-  const deployments = await import('../deployments.json')
   const networkIdStr = networkId.toString()
   const networkData = deployments.networks[networkIdStr as keyof typeof deployments.networks]
 
