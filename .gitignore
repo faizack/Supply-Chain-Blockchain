@@ -29,3 +29,5 @@ yarn-error.log*
 node_modules/
 
 deployments.json
+
+backend/client/src/artifacts/
