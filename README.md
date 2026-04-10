@@ -33,6 +33,8 @@ Watch the demo video: [Canva Design Demo](https://www.canva.com/design/DAFb-i9v_
 - [Technology Stack](#-technology-stack)
 - [Architecture](#-architecture)
 - [Installation](#-installation)
+- [Setting up Ganache (step by step)](#setting-up-ganache-step-by-step)
+- [Troubleshooting](#troubleshooting)
 - [Running the Project](#-running-the-project)
 - [Usage Guide](#-usage-guide)
 - [Smart Contract Details](#-smart-contract-details)
@@ -43,11 +45,7 @@ Watch the demo video: [Canva Design Demo](https://www.canva.com/design/DAFb-i9v_
 
 **Supply Chain Blockchain DApp** is an open-source, blockchain-based supply chain management application built with Solidity smart contracts, Hardhat, Next.js, Web3.js, and MetaMask. It demonstrates how to build an end-to-end Ethereum decentralized application (dApp) for transparent, secure, and traceable pharmaceutical supply chains.
 
-This repository is ideal for developers who want to learn:
 
-- How to build a full-stack Ethereum dApp with **Solidity**, **Hardhat**, **Next.js**, and **Web3.js**
-- How to design **role-based access control** and **product lifecycle tracking** on the blockchain
-- How to integrate a smart contract backend with a modern React/Next.js frontend
 
 <!-- ## Demo and Screenshots
 
@@ -100,6 +98,9 @@ This repository is ideal for developers who want to learn:
 
 ## Architecture
 
+
+![System Architecture](assets/system%20design.png)
+
 The application follows a decentralized architecture where:
 
 1. **Smart Contracts** (Solidity) handle all business logic and data storage on the blockchain
@@ -113,7 +114,7 @@ The application follows a decentralized architecture where:
 User → Next.js Frontend → Web3.js → MetaMask → Ethereum Network → Smart Contract
 ```
 
-![Architecture Diagram](https://raw.githubusercontent.com/faizack619/Supply-Chain-Gode-Blockchain/master/client/public/Blank%20diagram.png)
+
 
 ### Supply Chain Flow
 
@@ -164,13 +165,68 @@ cd ..
 
 ### Step 3: Configure Ganache
 
-1. Open Ganache and create a new workspace
-2. Note the RPC Server URL (usually `http://127.0.0.1:7545` or `http://127.0.0.1:8545`)
-3. Copy the Chain ID (usually `1337` or `5777`)
+Follow the detailed walkthrough: **[Setting up Ganache (step by step)](#setting-up-ganache-step-by-step)**. In short, use **RPC** `http://127.0.0.1:7545` and **chain ID** **1337** so they match `backend/hardhat.config.ts` (`networks.ganache`) and the keys in `client/src/deployments.json`.
+
+## Setting up Ganache (step by step)
+
+This project’s default Hardhat network `ganache` uses **`http://127.0.0.1:7545`** and **chain ID `1337`**. MetaMask, Ganache, and Hardhat must all use the **same** RPC URL and **chain ID** (EIP-155), or you will see “wrong network” or “contract not found”.
+
+### A. Ganache Desktop (recommended)
+
+1. **Install Ganache**  
+   Download and install [Ganache](https://trufflesuite.com/ganache/) (Truffle Suite).
+
+2. **Create a workspace**  
+   Open Ganache → **New Workspace** (or open an existing workspace). A workspace persists accounts and settings across restarts; **Quickstart** resets when you close the app.
+
+3. **Open workspace settings**  
+   Click the **gear / Settings** icon for the workspace.
+
+4. **Server (host and port)**  
+   In **Server** (sometimes **HOST & PORT**):
+   - **HOSTNAME**: `127.0.0.1` (use this in MetaMask on the same machine).
+   - **PORT**: `7545`  
+   This must match `networks.ganache.url` in `backend/hardhat.config.ts` (`http://127.0.0.1:7545`).
+
+5. **Chain ID**  
+   Set **Chain ID** (or **EIP-155 Chain ID**, depending on your Ganache version) to **`1337`**.  
+   If the UI only shows **NETWORK ID**, set it to **`1337`** for this repo so it stays consistent with Hardhat’s `ganache` network and the frontend’s default deployment entry.
+
+6. **Save and restart**  
+   Save settings and **restart** the workspace if Ganache prompts you.
+
+7. **Confirm RPC**  
+   On the main **Accounts** (or **CONTRACTS**) screen, check that the **RPC SERVER** is `http://127.0.0.1:7545` (or equivalent with `127.0.0.1` and port `7545`).
+
+8. **Deployer account**  
+   Hardhat uses Ganache’s **first account** by default when you deploy without a custom `accounts` config. In MetaMask, import that account’s **private key** (key icon in Ganache) if you need to act as the contract **owner**.
+
+**After you change chain ID or reset the chain:** redeploy the contract (`npx hardhat run scripts/deploy.ts --network ganache` from `backend`) so `client/src/deployments.json` gets a valid address for the current chain.
+
+### B. Ganache CLI (optional)
+
+If you use the [Ganache CLI](https://github.com/trufflesuite/ganache) instead of the desktop app, start a node that matches the same host, port, and chain ID:
+
+```bash
+npx ganache --host 127.0.0.1 --port 7545 --chain.chainId 1337
+```
+
+Leave this process running, then deploy from `backend` with `--network ganache` as usual.
+
+### Using chain ID 5777 instead
+
+If your Ganache instance must use **chain ID `5777`**, use Hardhat’s `ganache5777` network and deploy with:
+
+```bash
+cd backend
+npx hardhat run scripts/deploy.ts --network ganache5777
+```
+
+Ensure MetaMask’s **Chain ID** is **5777** and that `client/src/deployments.json` includes a `"5777"` entry after deploy.
 
 ### Step 4: Configure Hardhat
 
-Update `hardhat.config.ts` with your Ganache network settings:
+Update `backend/hardhat.config.ts` with your Ganache network settings (default RPC `http://127.0.0.1:7545` and chain ID **1337**):
 
 ```typescript
 networks: {
@@ -186,66 +242,86 @@ networks: {
 
 ### Step 5: Deploy Smart Contracts
 
+All Hardhat commands must be run from the **`backend`** folder (where `hardhat.config.ts` lives).
+
 Compile the smart contracts:
 
 ```bash
+cd backend
 npx hardhat compile
 ```
 
 Deploy to Ganache:
 
 ```bash
+cd backend
 npx hardhat run scripts/deploy.ts --network ganache
 ```
 
 The deployment script will automatically update `client/src/deployments.json` with the contract address.
 
-### Step 6: Configure MetaMask
+### Step 6: Ganache RPC & MetaMask setup (with screenshots)
 
-1. Open MetaMask and click the network dropdown
-2. Select "Add Network" → "Add a network manually"
-3. Enter the following details:
-   - **Network Name**: Ganache Local
-   - **RPC URL**: `http://127.0.0.1:7545` (or your Ganache URL)
-   - **Chain ID**: `1337` (or your Ganache Chain ID)
-   - **Currency Symbol**: ETH
-4. Click "Save"
+Use the same **RPC URL** and **chain ID** everywhere: Ganache, `backend/hardhat.config.ts`, MetaMask, and `client/src/deployments.json` (defaults: `http://127.0.0.1:7545`, chain ID **1337**). Images are in [`assets/`](assets/).
 
-5. Import an account from Ganache:
-   - In Ganache, click the key icon next to an account to reveal the private key
-   - In MetaMask, click the account icon → "Import Account"
-   - Paste the private key and click "Import"
+**1. Read the RPC server URL from Ganache**  
+You will paste this into MetaMask in the next step.
+
+<p align="center">
+  <img src="assets/rpc-url.png" alt="Ganache RPC server URL" width="720">
+</p>
+
+**2. Add the network in MetaMask**  
+Network menu → **Add network** → **Add a network manually**, then set:
+
+- **Network name:** e.g. `Ganache Local`
+- **RPC URL:** same as Ganache (e.g. `http://127.0.0.1:7545`)
+- **Chain ID:** `1337` (must match Ganache and Hardhat `networks.ganache`)
+- **Currency symbol:** `ETH`
+
+Save and **select this network** before using the app.
+
+<p align="center">
+  <img src="assets/add-network-wallet.png" alt="MetaMask add custom network" width="720">
+</p>
+
+**3. Copy the deployer private key from Ganache**  
+Hardhat deploys with Ganache’s **first account** by default. That address is the contract **owner** (Register Roles, Order Materials). Copy its private key from the key icon.
+
+<p align="center">
+  <img src="assets/ganache-copy-private-key.jpg" alt="Copy private key from Ganache" width="720">
+</p>
+
+**4. Import the account in MetaMask**  
+Account menu → **Import account** → paste the private key → **Import**. Keep this account selected when acting as owner.
+
+<p align="center">
+  <img src="assets/import-account.png" alt="Import account in MetaMask" width="720">
+</p>
+
+**5. Run the app**  
+From `client`: `npm run dev` → open [http://localhost:3000](http://localhost:3000). The deploy log line `Deploying with account: 0x...` must match the **active** MetaMask account for owner-only actions.
+
+## Troubleshooting
+
+**Chain ID `5777` vs `1337`:** Some docs confuse **network ID** with **chain ID** (EIP-155). This project expects **chain ID** to match everywhere. If Ganache uses **5777**, deploy with `npx hardhat run scripts/deploy.ts --network ganache5777` from `backend` and ensure `client/src/deployments.json` has a `"5777"` entry after deploy.
+
+| Symptom | What to check |
+|--------|----------------|
+| **Only owner can do this** | Active MetaMask account must be the **same address** that deployed the contract (see deploy log). Import that account from Ganache if needed. |
+| **Contract not found** / wrong network banner | Chain ID in MetaMask must match the key in `client/src/deployments.json`. After resetting Ganache, **redeploy** — old addresses are invalid. |
+| **1337 in settings but 5777 in console** | You were likely reading **network ID** vs **chain ID**. Align **chain ID** everywhere; redeploy after changing Ganache. |
+| **Transaction fails or wrong balance** | RPC URL in MetaMask must point to the **same** Ganache instance (correct host/port). |
 
 ## Running the Project
 
-### Start Ganache
+If you already followed **Installation**, you only need:
 
-1. Open Ganache application
-2. Create or open a workspace
-3. Ensure the server is running
+1. Ganache running with the same RPC/chain ID as **`backend/hardhat.config.ts`** (see **[Setting up Ganache (step by step)](#setting-up-ganache-step-by-step)**).
+2. Deploy (if needed): `cd backend && npx hardhat run scripts/deploy.ts --network ganache`
+3. Frontend: `cd client && npm run dev` → [http://localhost:3000](http://localhost:3000)
 
-### Deploy Contracts (if not already deployed)
-
-```bash
-npx hardhat run scripts/deploy.ts --network ganache
-```
-
-### Start the Frontend
-
-```bash
-cd client
-npm run dev
-```
-
-The application will be available at [http://localhost:3000](http://localhost:3000)
-
-### Build for Production
-
-```bash
-cd client
-npm run build
-npm start
-```
+**Production build:** `cd client && npm run build && npm start`
 
 ## Usage Guide
 
@@ -281,7 +357,8 @@ npm start
 
 ## Smart Contract Details
 
-The `SupplyChain.sol` smart contract implements a comprehensive supply chain management system with the following features:
+The `SupplyChain.sol` smart contract implements a supply chain for the **pharmaceutical** domain: it tracks medicine **stages**, stores names, descriptions, and current stage, and defines **roles** (raw material supplier, manufacturer, distributor, retailer). The **owner** registers participants and creates orders; other functions advance the product and **read** stage and history.
+
 
 ### Roles
 

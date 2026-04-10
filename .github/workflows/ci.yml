@@ -9,6 +9,7 @@ on:
       - 'CONTRIBUTING.md'
       - 'docs/**'
       - '*.md'
+      - 'assets/**'
   pull_request:
     branches: [ master, main ]
     paths-ignore:
@@ -17,7 +18,7 @@ on:
       - 'CONTRIBUTING.md'
       - 'docs/**'
       - '*.md'
-
+      - 'assets/**'
 jobs:
   backend:
     name: Backend (Hardhat)
