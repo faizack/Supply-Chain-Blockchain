@@ -27,9 +27,11 @@ export const getContract = async () => {
 
   const web3 = window.web3!
   const accounts = await web3.eth.getAccounts()
-  const networkId = await web3.eth.net.getId()
-  const networkIdStr = networkId.toString()
-  const networkData = deployments.networks[networkIdStr as keyof typeof deployments.networks]
+  // Use EIP-155 chainId (NOT "network id") to match deployments.json keys.
+  // Ganache commonly reports network id 5777 while chainId is 1337 (or vice versa).
+  const chainId = await web3.eth.getChainId()
+  const chainIdStr = chainId.toString()
+  const networkData = deployments.networks[chainIdStr as keyof typeof deployments.networks]
 
   if (networkData && networkData.SupplyChain && networkData.SupplyChain.address) {
     const contract = new web3.eth.Contract(SupplyChainArtifact.abi as any, networkData.SupplyChain.address)
@@ -38,9 +40,9 @@ export const getContract = async () => {
     // Get available networks from deployments
     const availableNetworks = Object.keys(deployments.networks).join(', ')
     throw new Error(
-      `Contract not found on network ${networkIdStr}.\n\n` +
+      `Contract not found on chainId ${chainIdStr}.\n\n` +
       `Available networks: ${availableNetworks}\n` +
-      `Please switch MetaMask to one of these networks or deploy the contract to network ${networkIdStr}.\n\n` +
+      `Please switch MetaMask to one of these networks or deploy the contract to chainId ${chainIdStr}.\n\n` +
       `To deploy: npx hardhat run scripts/deploy.ts --network <network>`
     )
   }
@@ -51,7 +53,8 @@ export const switchToNetwork = async (chainId: string | number) => {
     throw new Error('MetaMask is not installed')
   }
 
-  const chainIdHex = `0x${Number(chainId).toString(16)}`
+  const chainIdNum = Number(chainId)
+  const chainIdHex = `0x${chainIdNum.toString(16)}`
   
   try {
     await window.ethereum.request({
@@ -68,13 +71,13 @@ export const switchToNetwork = async (chainId: string | number) => {
           params: [
             {
               chainId: chainIdHex,
-              chainName: chainId === '1337' || chainId === '5777' ? 'Ganache Local' : 'Hardhat Local',
+              chainName: chainIdNum === 1337 || chainIdNum === 5777 ? 'Ganache Local' : 'Hardhat Local',
               nativeCurrency: {
                 name: 'ETH',
                 symbol: 'ETH',
                 decimals: 18,
               },
-              rpcUrls: chainId === '1337' || chainId === '5777'
+              rpcUrls: chainIdNum === 1337 || chainIdNum === 5777
                 ? ['http://127.0.0.1:7545'] 
                 : ['http://127.0.0.1:8545'],
             },
