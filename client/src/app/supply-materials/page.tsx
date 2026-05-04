@@ -253,7 +253,12 @@ export default function SupplyMaterials() {
           <CardHeader>
             <CardTitle>Process overview</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">Pipeline visibility:</span> steps 1–5 are all shown on this
+              screen to every participant. On-chain, only the wallet registered for each step&apos;s role can submit that
+              transaction.
+            </p>
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 p-6 rounded-xl border bg-muted/40">
               <div className="flex flex-col items-center">
                 <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
@@ -408,6 +413,15 @@ export default function SupplyMaterials() {
                 <p className="mt-1 text-sm text-muted-foreground">
                   Registered supplier · Created → Processing
                 </p>
+                <div className="mt-3 space-y-2 border-t border-blue-500/20 pt-3 text-xs text-muted-foreground">
+                  <p>
+                    <span className="font-semibold text-foreground">Action by:</span> Supplier
+                  </p>
+                  <p>
+                    <span className="font-semibold text-foreground">Who sees it:</span> Everyone on this page; only a
+                    registered supplier can press the button.
+                  </p>
+                </div>
               </div>
               <div className="rounded-full bg-blue-500 px-3 py-1 text-xs font-bold text-white">1</div>
             </div>
@@ -431,6 +445,15 @@ export default function SupplyMaterials() {
               <div className="flex-1">
                 <h5 className="text-xl font-bold text-foreground">Step 2: Producer processing</h5>
                 <p className="mt-1 text-sm text-muted-foreground">Registered producer · Processing → In transit</p>
+                <div className="mt-3 space-y-2 border-t border-green-500/20 pt-3 text-xs text-muted-foreground">
+                  <p>
+                    <span className="font-semibold text-foreground">Action by:</span> Producer
+                  </p>
+                  <p>
+                    <span className="font-semibold text-foreground">Who sees it:</span> Everyone on this page; only a
+                    registered producer can press the button.
+                  </p>
+                </div>
               </div>
               <div className="rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white">2</div>
             </div>
@@ -454,6 +477,23 @@ export default function SupplyMaterials() {
               <div className="flex-1">
                 <h5 className="text-xl font-bold text-foreground">Step 3: Distribution</h5>
                 <p className="mt-1 text-sm text-muted-foreground">Registered distributor · In transit → For sale</p>
+                <div className="mt-3 space-y-2 border-t border-purple-500/20 pt-3 text-xs text-muted-foreground">
+                  <p>
+                    <span className="font-semibold text-foreground">Action by:</span> Distributor
+                  </p>
+                  <p>
+                    <span className="font-semibold text-foreground">Who follows this:</span> Distributor controls the
+                    move · Producer tracks outgoing goods ·{' '}
+                    <span className="font-semibold text-foreground">Seller — waiting for delivery (critical)</span>
+                  </p>
+                </div>
+                <div className="mt-3 rounded-lg border border-amber-500/50 bg-amber-500/15 px-3 py-2.5 dark:bg-amber-500/20">
+                  <p className="text-xs font-semibold text-foreground">Seller visibility</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Sellers should treat this step as the handoff before listing: watch it closely so you know when
+                    goods are in the &quot;for sale&quot; lane on-chain.
+                  </p>
+                </div>
               </div>
               <div className="rounded-full bg-purple-500 px-3 py-1 text-xs font-bold text-white">3</div>
             </div>
@@ -479,6 +519,16 @@ export default function SupplyMaterials() {
                 <p className="mt-1 text-sm text-muted-foreground">
                   Registered seller · records listing (stage stays For sale)
                 </p>
+                <div className="mt-3 space-y-2 border-t border-orange-500/20 pt-3 text-xs text-muted-foreground">
+                  <p>
+                    <span className="font-semibold text-foreground">Action by:</span> Seller
+                  </p>
+                  <p>
+                    <span className="font-semibold text-foreground">Who sees it:</span> Seller creates the listing;
+                    distributor and producer may optionally monitor. This is when the product becomes visible to buyers if
+                    your storefront or explorer reads from the chain.
+                  </p>
+                </div>
               </div>
               <div className="rounded-full bg-orange-500 px-3 py-1 text-xs font-bold text-white">4</div>
             </div>
@@ -502,6 +552,16 @@ export default function SupplyMaterials() {
               <div className="flex-1">
                 <h5 className="text-xl font-bold text-foreground">Step 5: Mark sold</h5>
                 <p className="mt-1 text-sm text-muted-foreground">Same seller who listed · For sale → Sold</p>
+                <div className="mt-3 space-y-2 border-t border-red-500/20 pt-3 text-xs text-muted-foreground">
+                  <p>
+                    <span className="font-semibold text-foreground">Action by:</span> Seller (same wallet that listed)
+                  </p>
+                  <p>
+                    <span className="font-semibold text-foreground">Who sees it:</span> Seller submits the final move;
+                    supplier, producer, distributor, and seller all use this milestone for tracking. Customers can verify
+                    the outcome if you publish transparency links or IDs.
+                  </p>
+                </div>
               </div>
               <div className="rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white">5</div>
             </div>
