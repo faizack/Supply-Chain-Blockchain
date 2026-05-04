@@ -4,7 +4,7 @@ export const checkIsOwner = async (): Promise<boolean> => {
   try {
     const { contract } = await getContract()
     const account = await getActiveAccount()
-    const owner = await contract.methods.Owner().call()
+    const owner = await contract.methods.owner().call()
     return owner.toLowerCase() === account.toLowerCase()
   } catch (err) {
     console.error('Error checking owner:', err)
@@ -15,7 +15,7 @@ export const checkIsOwner = async (): Promise<boolean> => {
 export const getContractOwner = async (): Promise<string | null> => {
   try {
     const { contract } = await getContract()
-    const owner = await contract.methods.Owner().call()
+    const owner = await contract.methods.owner().call()
     return owner
   } catch (err) {
     console.error('Error getting owner:', err)

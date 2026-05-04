@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PackageCheck, ShieldCheck, Truck, UserCog } from "lucide-react";
+import { Home, PackageCheck, ShieldCheck, Truck, UserCog } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
+  { href: "/", label: "Home", icon: Home },
   { href: "/roles", label: "Register Roles", icon: UserCog },
   { href: "/addmed", label: "Order Materials", icon: PackageCheck },
   { href: "/track", label: "Track Materials", icon: ShieldCheck },
