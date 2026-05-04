@@ -14,41 +14,41 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const menuItems = [
   {
-    path: "/roles",
+    path: "/register-roles",
     title: "Register Roles",
-    description: "Assign roles to participants in the supply chain",
+    description: "Register supplier, producer, distributor, and seller actors",
     stat: "26 active participants",
     icon: Users,
   },
   {
-    path: "/addmed",
+    path: "/order-materials",
     title: "Order Materials",
-    description: "Create new medicine orders in the system",
+    description: "Owner creates products on-chain",
     stat: "12 pending orders",
     icon: Package,
   },
   {
-    path: "/track",
+    path: "/track-materials",
     title: "Track Materials",
-    description: "Monitor medicine journey through the supply chain",
+    description: "Trace products through Created → Sold stages",
     stat: "88% batches in transit",
     icon: ShieldCheck,
   },
   {
-    path: "/supply",
+    path: "/supply-materials",
     title: "Supply Materials",
-    description: "Manage supply chain flow and transitions",
+    description: "Advance each product through pipeline transactions",
     stat: "4 active handoffs",
     icon: Truck,
   },
 ];
 
 const supplyChainFlow = [
-  { step: "1", stage: "Raw Material", owner: "Supplier", status: "Verified" },
-  { step: "2", stage: "Manufacture", owner: "Manufacturer", status: "In Progress" },
-  { step: "3", stage: "Distribute", owner: "Distributor", status: "Queued" },
-  { step: "4", stage: "Retail", owner: "Retailer", status: "Pending" },
-  { step: "5", stage: "Consumer", owner: "Customer", status: "Awaiting Delivery" },
+  { step: "1", stage: "Product Created", owner: "Owner", status: "Queued" },
+  { step: "2", stage: "Processing", owner: "Supplier", status: "In Progress" },
+  { step: "3", stage: "In Transit", owner: "Producer", status: "Queued" },
+  { step: "4", stage: "For Sale", owner: "Distributor / Seller", status: "Pending" },
+  { step: "5", stage: "Sold", owner: "Seller", status: "Awaiting" },
 ];
 
 export default function Home() {
@@ -134,16 +134,16 @@ export default function Home() {
                       <CardDescription>Fast access to common actions</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
-                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/roles")}>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/register-roles")}>
                         Register participant role
                       </Button>
-                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/addmed")}>
-                        Create medicine order
+                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/order-materials")}>
+                        Create product order
                       </Button>
-                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/track")}>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/track-materials")}>
                         Track material batch
                       </Button>
-                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/supply")}>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => router.push("/supply-materials")}>
                         Manage supply transition
                       </Button>
                     </CardContent>

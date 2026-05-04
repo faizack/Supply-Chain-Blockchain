@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/roles", label: "Register Roles", icon: UserCog },
-  { href: "/addmed", label: "Order Materials", icon: PackageCheck },
-  { href: "/track", label: "Track Materials", icon: ShieldCheck },
-  { href: "/supply", label: "Supply Materials", icon: Truck },
+  { href: "/register-roles", label: "Register Roles", icon: UserCog },
+  { href: "/order-materials", label: "Order Materials", icon: PackageCheck },
+  { href: "/track-materials", label: "Track Materials", icon: ShieldCheck },
+  { href: "/supply-materials", label: "Supply Materials", icon: Truck },
 ];
 
 export function DashboardSidebar() {

@@ -108,8 +108,10 @@ contract SupplyChain {
         addActor(_address, _name, _place, ROLE.SELLER);
     }
 
-    function addProduct(string memory _name, string memory _description) public onlyOwner {
+    function addProduct(string memory _name, string memory _description) public {
         require(supplierCtr > 0 && producerCtr > 0 && distributorCtr > 0 && sellerCtr > 0, "All roles required");
+        uint256 _producerId = findProducer(msg.sender);
+        require(_producerId > 0, "Not producer");
         productCtr++;
         ProductStock[productCtr] = Product(
             productCtr,

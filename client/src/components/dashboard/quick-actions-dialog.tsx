@@ -32,13 +32,16 @@ export function QuickActionsDialog() {
         </DialogHeader>
         <div className="grid gap-3 py-2">
           <Button variant="outline" asChild>
-            <Link href="/roles">Register a new participant role</Link>
+            <Link href="/register-roles">Register a new participant role</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="/addmed">Create a new order</Link>
+            <Link href="/order-materials">Create a new order</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="/track">Track a material batch</Link>
+            <Link href="/track-materials">Track a material batch</Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href="/supply-materials">Advance supply-chain stages</Link>
           </Button>
         </div>
         <DialogFooter>
