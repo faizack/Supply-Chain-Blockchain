@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadWeb3, getContract } from '@/lib/web3'
+import { loadWeb3, getActiveAccount, getContract } from '@/lib/web3'
 import { QRCodeCanvas } from 'qrcode.react'
 import { parseTransactionError } from '@/lib/errorUtils'
 import { showNotification } from '@/components/Notification'
@@ -52,7 +52,8 @@ export default function Track() {
   const loadBlockchainData = async () => {
     try {
       setLoader(true)
-      const { contract, account } = await getContract()
+      const { contract } = await getContract()
+      const account = await getActiveAccount()
       setSupplyChain(contract)
       setCurrentAccount(account)
 

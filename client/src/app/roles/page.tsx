@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadWeb3, getContract } from '@/lib/web3'
+import { loadWeb3, getActiveAccount, getContract } from '@/lib/web3'
 import { checkIsOwner, getContractOwner } from '@/lib/contractUtils'
 import { parseTransactionError } from '@/lib/errorUtils'
 import { showNotification } from '@/components/Notification'
@@ -48,7 +48,8 @@ export default function AssignRoles() {
   const loadBlockchainData = async () => {
     try {
       setLoading(true)
-      const { contract, account } = await getContract()
+      const { contract } = await getContract()
+      const account = await getActiveAccount()
       setSupplyChain(contract)
       setCurrentAccount(account)
 
@@ -107,19 +108,21 @@ export default function AssignRoles() {
     event.preventDefault()
     const { address, name, place, type } = newRole
     try {
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
       let receipt
       switch (type) {
         case 'rms':
-          receipt = await supplyChain.methods.addRMS(address, name, place).send({ from: currentAccount })
+          receipt = await supplyChain.methods.addRMS(address, name, place).send({ from: account })
           break
         case 'man':
-          receipt = await supplyChain.methods.addManufacturer(address, name, place).send({ from: currentAccount })
+          receipt = await supplyChain.methods.addManufacturer(address, name, place).send({ from: account })
           break
         case 'dis':
-          receipt = await supplyChain.methods.addDistributor(address, name, place).send({ from: currentAccount })
+          receipt = await supplyChain.methods.addDistributor(address, name, place).send({ from: account })
           break
         case 'ret':
-          receipt = await supplyChain.methods.addRetailer(address, name, place).send({ from: currentAccount })
+          receipt = await supplyChain.methods.addRetailer(address, name, place).send({ from: account })
           break
         default:
           showNotification('Invalid role type selected', 'error')

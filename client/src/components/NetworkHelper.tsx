@@ -30,18 +30,19 @@ export default function NetworkHelper() {
 
     checkNetwork()
 
-    // Listen for network changes
+    const handleChainChanged = () => window.location.reload()
+    const handleAccountsChanged = () => window.location.reload()
+
+    // Listen for network/account changes
     if (window.ethereum) {
-      window.ethereum.on('chainChanged', () => {
-        window.location.reload()
-      })
+      window.ethereum.on('chainChanged', handleChainChanged)
+      window.ethereum.on('accountsChanged', handleAccountsChanged)
     }
 
     return () => {
       if (window.ethereum) {
-        window.ethereum.removeListener('chainChanged', () => {
-          window.location.reload()
-        })
+        window.ethereum.removeListener('chainChanged', handleChainChanged)
+        window.ethereum.removeListener('accountsChanged', handleAccountsChanged)
       }
     }
   }, [])

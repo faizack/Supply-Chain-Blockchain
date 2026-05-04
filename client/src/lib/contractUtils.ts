@@ -1,8 +1,9 @@
-import { getContract } from './web3'
+import { getActiveAccount, getContract } from './web3'
 
 export const checkIsOwner = async (): Promise<boolean> => {
   try {
-    const { contract, account } = await getContract()
+    const { contract } = await getContract()
+    const account = await getActiveAccount()
     const owner = await contract.methods.Owner().call()
     return owner.toLowerCase() === account.toLowerCase()
   } catch (err) {

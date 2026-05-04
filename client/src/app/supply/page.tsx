@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadWeb3, getContract } from '@/lib/web3'
+import { loadWeb3, getActiveAccount, getContract } from '@/lib/web3'
 import { parseTransactionError } from '@/lib/errorUtils'
 import { showNotification } from '@/components/Notification'
 
@@ -38,7 +38,8 @@ export default function Supply() {
   const loadBlockchainData = async () => {
     try {
       setLoader(true)
-      const { contract, account } = await getContract()
+      const { contract } = await getContract()
+      const account = await getActiveAccount()
       setSupplyChain(contract)
       setCurrentAccount(account)
 
@@ -85,7 +86,9 @@ export default function Supply() {
   const handlerSubmitRMSsupply = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
-      const receipt = await supplyChain.methods.RMSsupply(rmsId).send({ from: currentAccount })
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
+      const receipt = await supplyChain.methods.RMSsupply(rmsId).send({ from: account })
       if (receipt) {
         loadBlockchainData()
         setRmsId('')
@@ -101,7 +104,9 @@ export default function Supply() {
   const handlerSubmitManufacturing = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
-      const receipt = await supplyChain.methods.Manufacturing(manId).send({ from: currentAccount })
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
+      const receipt = await supplyChain.methods.Manufacturing(manId).send({ from: account })
       if (receipt) {
         loadBlockchainData()
         setManId('')
@@ -117,7 +122,9 @@ export default function Supply() {
   const handlerSubmitDistribute = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
-      const receipt = await supplyChain.methods.Distribute(disId).send({ from: currentAccount })
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
+      const receipt = await supplyChain.methods.Distribute(disId).send({ from: account })
       if (receipt) {
         loadBlockchainData()
         setDisId('')
@@ -133,7 +140,9 @@ export default function Supply() {
   const handlerSubmitRetail = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
-      const receipt = await supplyChain.methods.Retail(retId).send({ from: currentAccount })
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
+      const receipt = await supplyChain.methods.Retail(retId).send({ from: account })
       if (receipt) {
         loadBlockchainData()
         setRetId('')
@@ -149,7 +158,9 @@ export default function Supply() {
   const handlerSubmitSold = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
-      const receipt = await supplyChain.methods.sold(soldId).send({ from: currentAccount })
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
+      const receipt = await supplyChain.methods.sold(soldId).send({ from: account })
       if (receipt) {
         loadBlockchainData()
         setSoldId('')

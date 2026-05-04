@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadWeb3, getContract } from '@/lib/web3'
+import { loadWeb3, getActiveAccount, getContract } from '@/lib/web3'
 import { checkIsOwner, getContractOwner } from '@/lib/contractUtils'
 import { parseTransactionError } from '@/lib/errorUtils'
 import { showNotification } from '@/components/Notification'
@@ -45,7 +45,8 @@ export default function AddMed() {
   const loadBlockchainData = async () => {
     try {
       setLoader(true)
-      const { contract, account } = await getContract()
+      const { contract } = await getContract()
+      const account = await getActiveAccount()
       setSupplyChain(contract)
       setCurrentAccount(account)
 
@@ -101,7 +102,9 @@ export default function AddMed() {
     event.preventDefault()
     setIsSubmitting(true)
     try {
-      const receipt = await supplyChain.methods.addMedicine(medName, medDes).send({ from: currentAccount })
+      const account = await getActiveAccount()
+      setCurrentAccount(account)
+      const receipt = await supplyChain.methods.addMedicine(medName, medDes).send({ from: account })
       if (receipt) {
         loadBlockchainData()
         setMedName('')
