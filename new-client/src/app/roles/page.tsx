@@ -6,6 +6,18 @@ import { loadWeb3, getActiveAccount, getContract } from '@/lib/web3'
 import { checkIsOwner, getContractOwner } from '@/lib/contractUtils'
 import { parseTransactionError } from '@/lib/errorUtils'
 import { showNotification } from '@/components/Notification'
+import { DashboardPageShell } from '@/components/dashboard/page-shell'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 interface Role {
   addr: string
@@ -142,10 +154,10 @@ export default function AssignRoles() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="flex justify-center items-center min-h-screen bg-background">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-4"></div>
-          <h1 className="text-2xl font-bold text-gray-700">Loading...</h1>
+          <h1 className="text-2xl font-bold text-foreground">Loading...</h1>
         </div>
       </div>
     )
@@ -207,10 +219,10 @@ export default function AssignRoles() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-5">
-      <div className="max-w-6xl mx-auto">
+    <DashboardPageShell heading="Register Roles" subheading="Participant Management">
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+        <div className="rounded-2xl border bg-card shadow-sm p-6 mb-6">
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center space-x-4">
               <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
@@ -219,8 +231,8 @@ export default function AssignRoles() {
                 </svg>
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-800">Register Roles</h1>
-                <p className="text-gray-600 text-sm">Assign roles to participants in the supply chain</p>
+                <h1 className="text-3xl font-bold text-foreground">Register Roles</h1>
+                <p className="text-muted-foreground text-sm">Assign roles to participants in the supply chain</p>
               </div>
             </div>
             <button
@@ -233,7 +245,7 @@ export default function AssignRoles() {
               HOME
             </button>
           </div>
-          <div className="text-xs text-gray-500 font-mono">
+            <div className="text-xs text-muted-foreground font-mono">
             Account: {currentAccount}
           </div>
         </div>
@@ -272,7 +284,11 @@ export default function AssignRoles() {
         )}
 
         {/* Registration Form */}
-        <div className={`bg-gradient-to-br ${roleConfig[newRole.type as keyof typeof roleConfig].bgGradient} rounded-2xl shadow-xl p-8 mb-6 border-l-4 ${roleConfig[newRole.type as keyof typeof roleConfig].borderColor}`}>
+        <Card className="mb-6 shadow-sm">
+          <CardHeader>
+            <CardTitle>Register New Role</CardTitle>
+          </CardHeader>
+          <CardContent>
           <div className="flex items-center mb-6">
             <div className={`w-12 h-12 bg-gradient-to-r ${roleConfig[newRole.type as keyof typeof roleConfig].gradient} rounded-xl flex items-center justify-center mr-4 shadow-lg text-white`}>
               {roleConfig[newRole.type as keyof typeof roleConfig].icon}
@@ -291,25 +307,17 @@ export default function AssignRoles() {
                 </svg>
                 Role Type
               </label>
-              <div className="relative">
-                <select
-                  className="w-full px-4 py-3 pl-12 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg bg-white appearance-none cursor-pointer"
-                  name="type"
-                  onChange={handleInputChange}
-                  value={newRole.type}
-                  required
-                >
-                  <option value="rms">Raw Material Supplier</option>
-                  <option value="man">Manufacturer</option>
-                  <option value="dis">Distributor</option>
-                  <option value="ret">Retailer</option>
-                </select>
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
+              <Select value={newRole.type} onValueChange={(value) => setNewRole((prev) => ({ ...prev, type: value }))}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select role type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="rms">Raw Material Supplier</SelectItem>
+                  <SelectItem value="man">Manufacturer</SelectItem>
+                  <SelectItem value="dis">Distributor</SelectItem>
+                  <SelectItem value="ret">Retailer</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
@@ -319,22 +327,15 @@ export default function AssignRoles() {
                 </svg>
                 Ethereum Address
               </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15l1.5 1.5M17 15l-1.5 1.5M9 5h6m-6 0v2m0-2a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V7a2 2 0 00-2-2m-6 0V3m0 2v2" />
-                  </svg>
-                </div>
-                <input
-                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg bg-white font-mono text-sm"
-                  type="text"
-                  name="address"
-                  placeholder="0x..."
-                  onChange={handleInputChange}
-                  value={newRole.address}
-                  required
-                />
-              </div>
+              <Input
+                type="text"
+                name="address"
+                placeholder="0x..."
+                onChange={handleInputChange}
+                value={newRole.address}
+                required
+                className="font-mono text-sm"
+              />
             </div>
 
             <div>
@@ -344,22 +345,14 @@ export default function AssignRoles() {
                 </svg>
                 Name
               </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <input
-                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg bg-white"
-                  type="text"
-                  name="name"
-                  placeholder="Enter participant name"
-                  onChange={handleInputChange}
-                  value={newRole.name}
-                  required
-                />
-              </div>
+              <Input
+                type="text"
+                name="name"
+                placeholder="Enter participant name"
+                onChange={handleInputChange}
+                value={newRole.name}
+                required
+              />
             </div>
 
             <div>
@@ -370,52 +363,26 @@ export default function AssignRoles() {
                 </svg>
                 Location
               </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <input
-                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg bg-white"
-                  type="text"
-                  name="place"
-                  placeholder="Enter location (e.g., City, Country)"
-                  onChange={handleInputChange}
-                  value={newRole.place}
-                  required
-                />
-              </div>
+              <Input
+                type="text"
+                name="place"
+                placeholder="Enter location (e.g., City, Country)"
+                onChange={handleInputChange}
+                value={newRole.place}
+                required
+              />
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={!isOwner}
-              className={`w-full px-6 py-4 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl transform ${
-                isOwner
-                  ? `bg-gradient-to-r ${roleConfig[newRole.type as keyof typeof roleConfig].gradient} text-white hover:scale-105 cursor-pointer`
-                  : 'bg-gray-400 text-gray-200 cursor-not-allowed'
-              } flex items-center justify-center`}
+              className="w-full"
             >
-              {isOwner ? (
-                <>
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Register {roleConfig[newRole.type as keyof typeof roleConfig].label}
-                </>
-              ) : (
-                <>
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                  Only Owner Can Register
-                </>
-              )}
-            </button>
+              {isOwner ? `Register ${roleConfig[newRole.type as keyof typeof roleConfig].label}` : 'Only Owner Can Register'}
+            </Button>
           </form>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Registered Roles */}
         <div className="space-y-6">
@@ -443,9 +410,7 @@ export default function AssignRoles() {
                       <p className="text-sm text-gray-500">{totalCount} registered</p>
                     </div>
                   </div>
-                  <div className={`px-4 py-2 bg-gradient-to-r ${config.bgGradient} rounded-lg border ${config.borderColor} border-2`}>
-                    <span className="text-sm font-bold text-gray-700">{totalCount}</span>
-                  </div>
+                  <Badge variant="secondary">{totalCount}</Badge>
                 </div>
 
                 {totalCount === 0 ? (
@@ -507,6 +472,6 @@ export default function AssignRoles() {
           })}
         </div>
       </div>
-    </div>
+    </DashboardPageShell>
   )
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import Web3 from 'web3'
 import { SupplyChainArtifact } from './contracts'
 import deployments from '../deployments.json'
