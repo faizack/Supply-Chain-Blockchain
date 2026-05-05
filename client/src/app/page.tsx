@@ -11,55 +11,147 @@ import { DashboardSkeleton } from "@/components/dashboard/dashboard-skeleton";
 import { FlowTable } from "@/components/dashboard/flow-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { getContract } from "@/lib/web3";
+import { parseTransactionError } from "@/lib/errorUtils";
+import { showNotification } from "@/components/Notification";
+
+type DashboardData = {
+  productCount: number;
+  participantCount: number;
+  soldCount: number;
+  stageCounts: {
+    created: number;
+    processing: number;
+    inTransit: number;
+    forSale: number;
+    sold: number;
+  };
+};
 
 const menuItems = [
   {
     path: "/register-roles",
     title: "Register Roles",
     description: "Register supplier, producer, distributor, and seller actors",
-    stat: "26 active participants",
+    statKey: "participants",
     icon: Users,
   },
   {
     path: "/order-materials",
     title: "Order Materials",
-    description: "Owner creates products on-chain",
-    stat: "12 pending orders",
+    description: "Create products on-chain as a registered producer",
+    statKey: "products",
     icon: Package,
   },
   {
     path: "/track-materials",
     title: "Track Materials",
     description: "Trace products through Created → Sold stages",
-    stat: "88% batches in transit",
+    statKey: "inTransit",
     icon: ShieldCheck,
   },
   {
     path: "/supply-materials",
     title: "Supply Materials",
     description: "Advance each product through pipeline transactions",
-    stat: "4 active handoffs",
+    statKey: "forSale",
     icon: Truck,
   },
 ];
 
-const supplyChainFlow = [
-  { step: "1", stage: "Product Created", owner: "Owner", status: "Queued" },
-  { step: "2", stage: "Processing", owner: "Supplier", status: "In Progress" },
-  { step: "3", stage: "In Transit", owner: "Producer", status: "Queued" },
-  { step: "4", stage: "For Sale", owner: "Distributor / Seller", status: "Pending" },
-  { step: "5", stage: "Sold", owner: "Seller", status: "Awaiting" },
-];
+const defaultDashboardData: DashboardData = {
+  productCount: 0,
+  participantCount: 0,
+  soldCount: 0,
+  stageCounts: {
+    created: 0,
+    processing: 0,
+    inTransit: 0,
+    forSale: 0,
+    sold: 0,
+  },
+};
 
 export default function Home() {
   const router = useRouter();
   const [search, setSearch] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(true);
+  const [dashboardData, setDashboardData] = React.useState<DashboardData>(defaultDashboardData);
 
   React.useEffect(() => {
-    const timeoutId = setTimeout(() => setIsLoading(false), 500);
-    return () => clearTimeout(timeoutId);
+    const loadDashboardData = async () => {
+      try {
+        setIsLoading(true);
+        const { contract } = await getContract();
+
+        const [productCtr, supplierCtr, producerCtr, distributorCtr, sellerCtr] = await Promise.all([
+          contract.methods.productCtr().call(),
+          contract.methods.supplierCtr().call(),
+          contract.methods.producerCtr().call(),
+          contract.methods.distributorCtr().call(),
+          contract.methods.sellerCtr().call(),
+        ]);
+
+        const productCount = Number(productCtr);
+        const participantCount =
+          Number(supplierCtr) + Number(producerCtr) + Number(distributorCtr) + Number(sellerCtr);
+
+        const stageCounts = {
+          created: 0,
+          processing: 0,
+          inTransit: 0,
+          forSale: 0,
+          sold: 0,
+        };
+
+        for (let i = 1; i <= productCount; i++) {
+          const row = (await contract.methods.ProductStock(i).call()) as { stage?: string | number };
+          const stage = Number(row.stage ?? 0);
+          if (stage === 0) stageCounts.created++;
+          else if (stage === 1) stageCounts.processing++;
+          else if (stage === 2) stageCounts.inTransit++;
+          else if (stage === 3) stageCounts.forSale++;
+          else if (stage === 4) stageCounts.sold++;
+        }
+
+        setDashboardData({
+          productCount,
+          participantCount,
+          soldCount: stageCounts.sold,
+          stageCounts,
+        });
+      } catch (err: unknown) {
+        console.error("Error loading homepage dashboard data:", err);
+        const parsed = parseTransactionError(err);
+        showNotification(parsed.message, "error");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    void loadDashboardData();
   }, []);
+
+  const stageFlowRows = React.useMemo(
+    () => [
+      { step: "1", stage: "Product Created", owner: "Producer", status: `${dashboardData.stageCounts.created} batches` },
+      { step: "2", stage: "Processing", owner: "Supplier", status: `${dashboardData.stageCounts.processing} batches` },
+      { step: "3", stage: "In Transit", owner: "Producer", status: `${dashboardData.stageCounts.inTransit} batches` },
+      { step: "4", stage: "For Sale", owner: "Distributor / Seller", status: `${dashboardData.stageCounts.forSale} batches` },
+      { step: "5", stage: "Sold", owner: "Seller", status: `${dashboardData.stageCounts.sold} batches` },
+    ],
+    [dashboardData.stageCounts],
+  );
+
+  const statByKey = React.useMemo(
+    () => ({
+      participants: `${dashboardData.participantCount} registered`,
+      products: `${dashboardData.productCount} products`,
+      inTransit: `${dashboardData.stageCounts.inTransit} in transit`,
+      forSale: `${dashboardData.stageCounts.forSale} for sale`,
+    }),
+    [dashboardData],
+  );
 
   const filteredItems = React.useMemo(() => {
     const searchValue = search.toLowerCase().trim();
@@ -84,9 +176,9 @@ export default function Home() {
             ) : (
               <>
                 <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                  <StatCard title="Tracked Batches" value="124" hint="+8% from last cycle" />
-                  <StatCard title="Verified Handoffs" value="412" hint="+12 today" />
-                  <StatCard title="Compliance Alerts" value="3" hint="2 require immediate action" />
+                  <StatCard title="Total Products" value={dashboardData.productCount.toString()} hint="Live on-chain product count" />
+                  <StatCard title="Registered Participants" value={dashboardData.participantCount.toString()} hint="Suppliers + Producers + Distributors + Sellers" />
+                  <StatCard title="Sold Products" value={dashboardData.soldCount.toString()} hint="Products completed at Sold stage" />
                 </section>
 
                 <section className="grid grid-cols-1 gap-4 xl:grid-cols-[2fr_1fr]">
@@ -111,7 +203,9 @@ export default function Home() {
                           >
                             <div className="mb-3 flex items-center justify-between">
                               <Icon className="h-5 w-5 text-muted-foreground" />
-                              <span className="text-xs text-muted-foreground">{item.stat}</span>
+                              <span className="text-xs text-muted-foreground">
+                                {statByKey[item.statKey as keyof typeof statByKey]}
+                              </span>
                             </div>
                             <p className="font-medium">{item.title}</p>
                             <p className="mt-1 text-sm text-muted-foreground">
@@ -155,11 +249,11 @@ export default function Home() {
                     <CardHeader>
                       <CardTitle>Supply Chain Progress</CardTitle>
                       <CardDescription>
-                        Stage visibility reused from your original flow.
+                        Real-time stage distribution from on-chain ProductStock.
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <FlowTable rows={supplyChainFlow} />
+                      <FlowTable rows={stageFlowRows} />
                     </CardContent>
                   </Card>
                 </section>

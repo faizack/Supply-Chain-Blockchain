@@ -399,7 +399,7 @@ export default function TrackMaterials() {
           productIdInput={productIdInput}
           products={products}
           productStages={productStages}
-          showQr={trackTillCreated}
+          showQr={true}
           onTrackAnother={resetTracking}
           onHome={() => router.push('/')}
           stages={[
@@ -448,7 +448,7 @@ export default function TrackMaterials() {
           productIdInput={productIdInput}
           products={products}
           productStages={productStages}
-          showQr={trackTillCreated}
+          showQr={true}
           onTrackAnother={resetTracking}
           onHome={() => router.push('/')}
           stages={[
@@ -501,7 +501,7 @@ export default function TrackMaterials() {
           productIdInput={productIdInput}
           products={products}
           productStages={productStages}
-          showQr={trackTillCreated}
+          showQr={true}
           onTrackAnother={resetTracking}
           onHome={() => router.push('/')}
           stages={[
@@ -532,7 +532,7 @@ export default function TrackMaterials() {
           productIdInput={productIdInput}
           products={products}
           productStages={productStages}
-          showQr={trackTillCreated}
+          showQr={true}
           onTrackAnother={resetTracking}
           onHome={() => router.push('/')}
           stages={[
@@ -555,7 +555,7 @@ export default function TrackMaterials() {
           productIdInput={productIdInput}
           products={products}
           productStages={productStages}
-          showQr={trackTillCreated}
+          showQr={true}
           onTrackAnother={resetTracking}
           onHome={() => router.push('/')}
           stages={[
