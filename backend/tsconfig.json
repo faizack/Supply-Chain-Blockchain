@@ -15,7 +15,8 @@
   "include": [
     "hardhat/scripts/**/*",
     "./test/**/*",
-    "./hardhat.config.ts"
+    "./hardhat.config.ts",
+    "./typechain-types"
   ],
   "exclude": [
     "hardhat/node_modules",

@@ -20,13 +20,28 @@ export const loadWeb3 = async (): Promise<void> => {
   }
 }
 
+export const getActiveAccount = async (): Promise<string> => {
+  if (!window.ethereum) {
+    throw new Error('MetaMask is not installed')
+  }
+
+  // First try without prompting the user.
+  const existing = (await window.ethereum.request({ method: 'eth_accounts' })) as string[]
+  if (existing && existing.length > 0) return existing[0]
+
+  // If not connected yet, request access (prompts MetaMask).
+  const requested = (await window.ethereum.request({ method: 'eth_requestAccounts' })) as string[]
+  if (requested && requested.length > 0) return requested[0]
+
+  throw new Error('No active account found. Please connect MetaMask.')
+}
+
 export const getContract = async () => {
   if (!window.web3) {
     await loadWeb3()
   }
 
   const web3 = window.web3!
-  const accounts = await web3.eth.getAccounts()
   // Use EIP-155 chainId (NOT "network id") to match deployments.json keys.
   // Ganache commonly reports network id 5777 while chainId is 1337 (or vice versa).
   const chainId = await web3.eth.getChainId()
@@ -35,7 +50,7 @@ export const getContract = async () => {
 
   if (networkData && networkData.SupplyChain && networkData.SupplyChain.address) {
     const contract = new web3.eth.Contract(SupplyChainArtifact.abi as any, networkData.SupplyChain.address)
-    return { contract, account: accounts[0], web3 }
+    return { contract, web3 }
   } else {
     // Get available networks from deployments
     const availableNetworks = Object.keys(deployments.networks).join(', ')
